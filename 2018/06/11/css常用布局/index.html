@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="css," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="css常用布局脑图   传统盒模型文档流布局最基本的布局方式，就是按照文档的顺序一个一个显示出来，块元素独占一行，行内元素共享一行 浮动布局浮动方式布局就是使用 float 属性，使元素脱离文档流，浮动起来 什么情况下需要清除浮动？父元素没有高度（指的是不设值，height:0不算）的情况下，里面的子元素都设置了浮动  只要浮动在一个有高度的盒子中，那么这个浮动就不会影响后面的浮动元素。但是网页制">
+<meta name="keywords" content="css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css常用布局">
+<meta property="og:url" content="elfecho.github.io/2018/06/11/css常用布局/index.html">
+<meta property="og:site_name" content="Elfecho’Blog">
+<meta property="og:description" content="css常用布局脑图   传统盒模型文档流布局最基本的布局方式，就是按照文档的顺序一个一个显示出来，块元素独占一行，行内元素共享一行 浮动布局浮动方式布局就是使用 float 属性，使元素脱离文档流，浮动起来 什么情况下需要清除浮动？父元素没有高度（指的是不设值，height:0不算）的情况下，里面的子元素都设置了浮动  只要浮动在一个有高度的盒子中，那么这个浮动就不会影响后面的浮动元素。但是网页制">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/css常用布局/css布局.png">
+<meta property="og:image" content="/blog/2018/06/11/css常用布局/css布局.png">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/compatible.png">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/flex01.png">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/flex02.png">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/flex03.png">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/flex04.png">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/flex05.png">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/grid01.jpg">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/grid01.jpg">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/css-grid-layout-1.jpg">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/css-grid-layout-2.jpg">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/css-grid-layout-3.jpg">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/css-grid-layout-4.jpg">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/grid03.png">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/grid04.png">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/grid05.png">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/grid06.png">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/grid07.png">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/grid08.png">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/grid09.png">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/grid10.png">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/grid11.png">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/vertical.png">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/vertical02.png">
+<meta property="og:image" content="elfecho.github.io/2018/06/11/css常用布局/vertical03.png">
+<meta property="og:updated_time" content="2018-06-29T15:11:23.317Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css常用布局">
+<meta name="twitter:description" content="css常用布局脑图   传统盒模型文档流布局最基本的布局方式，就是按照文档的顺序一个一个显示出来，块元素独占一行，行内元素共享一行 浮动布局浮动方式布局就是使用 float 属性，使元素脱离文档流，浮动起来 什么情况下需要清除浮动？父元素没有高度（指的是不设值，height:0不算）的情况下，里面的子元素都设置了浮动  只要浮动在一个有高度的盒子中，那么这个浮动就不会影响后面的浮动元素。但是网页制">
+<meta name="twitter:image" content="elfecho.github.io/2018/06/11/css常用布局/css常用布局/css布局.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"没有找到与[${query}]相关的内容","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="elfecho.github.io/2018/06/11/css常用布局/"/>
+
+
+
+
+
+  <title>css常用布局 | Elfecho’Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c491056d7021e5c248129f6222a89004";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Elfecho’Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">有空时来歇歇脚吧</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="elfecho.github.io/blog/2018/06/11/css常用布局/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="elfecho">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Elfecho’Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">css常用布局</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-11T00:38:29+08:00">
+                2018-06-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            
+            
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  6.2k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  25 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="http://naotu.baidu.com/file/7cab78cd4206441c20a428f5dd10fd00?token=8a6471a42e345b7e" target="_blank" rel="noopener">css常用布局脑图</a></p>
+<p><img src="css常用布局/css布局.png" alt="Alt text" title="css布局"></p>
+<img src="/blog/2018/06/11/css常用布局/css布局.png" title="这是一个新的博客的图片的说明">
+<h2 id="传统盒模型"><a href="#传统盒模型" class="headerlink" title="传统盒模型"></a>传统盒模型</h2><h3 id="文档流布局"><a href="#文档流布局" class="headerlink" title="文档流布局"></a>文档流布局</h3><p>最基本的布局方式，就是按照文档的顺序一个一个显示出来，块元素独占一行，行内元素共享一行</p>
+<h3 id="浮动布局"><a href="#浮动布局" class="headerlink" title="浮动布局"></a>浮动布局</h3><p>浮动方式布局就是使用 float 属性，使元素脱离文档流，浮动起来</p>
+<h4 id="什么情况下需要清除浮动？"><a href="#什么情况下需要清除浮动？" class="headerlink" title="什么情况下需要清除浮动？"></a>什么情况下需要清除浮动？</h4><p>父元素没有高度（指的是不设值，height:0不算）的情况下，里面的子元素都设置了浮动</p>
+<blockquote>
+<p>只要浮动在一个有高度的盒子中，那么这个浮动就不会影响后面的浮动元素。<br>但是网页制作中，高度height很少出现。为什么？因为能被内容撑高！</p>
+</blockquote>
+<h4 id="清除浮动的3种办法"><a href="#清除浮动的3种办法" class="headerlink" title="清除浮动的3种办法"></a>清除浮动的3种办法</h4><p>1、 尾元素清除浮动。给父元素加上clearfix这个类即可<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//在类名为clearfix的元素后面加入内容</span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span>&#123;</span><br><span class="line"><span class="attribute">content</span>:<span class="string">""</span>;</span><br><span class="line"><span class="attribute">height</span>:<span class="number">0</span>;</span><br><span class="line"><span class="attribute">line-height</span>:<span class="number">0</span>;</span><br><span class="line"><span class="attribute">display</span>:block;</span><br><span class="line"><span class="attribute">clear</span>:both;</span><br><span class="line"><span class="attribute">visibility</span>:hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span>&#123;</span><br><span class="line"> zoom:1;  //因为IE6不支持:after伪类。它的效果和height:1%一样</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2、在浮动元素后面加空标签（设clear:both）<br>3、给没有设置高度的父元素设置overflow:hidden<br>一个父元素不能被自己浮动的子元素，撑出高度。但是，只要给父元素加上overflow:hidden; 那么，父元素就能被子元素撑出高了。</p>
+<h3 id="定位布局"><a href="#定位布局" class="headerlink" title="定位布局"></a>定位布局</h3><p>通过 <code>position</code> 属性来进行定位</p>
+<h2 id="flex-布局"><a href="#flex-布局" class="headerlink" title="flex 布局"></a>flex 布局</h2><p>仅仅通过上述的三种布局方式还是有一些缺陷，比如我们不能只使用一个属性来实现垂直居中布局，所以就产生了第四种布局方式：flex 布局。</p>
+<h3 id="flex是什么"><a href="#flex是什么" class="headerlink" title="flex是什么"></a>flex是什么</h3><blockquote>
+<p>2009年w3c提出的一种可以简洁、快速弹性布局的属性。主要思想是<strong>给予容器控制内部元素高度和宽度的能力</strong></p>
+<p>Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。</p>
+</blockquote>
+<p>注意其浏览器的兼容性，flex 只支持 ie 10+，所有还是要根据你的项目情况使用（没错，我们要求至少 ie 9）<br><img src="compatible.png" alt="alt text" title="浏览器兼容"></p>
+<h3 id="使用-flex-布局"><a href="#使用-flex-布局" class="headerlink" title="使用 flex 布局"></a>使用 flex 布局</h3><p>flex 的使用方法很简单，只需要将其 <code>display</code> 属性设置为 <code>flex</code> 就可以，也可以设置行内的 <code>flex</code>，记得 Webkit 内核的浏览器，必须加上 <code>-webkit</code> 前缀。注意，设为 <code>Flex</code> 布局以后，子元素的 <code>float</code>、<code>clear</code> 和 <code>vertical-align</code> 属性将失效。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: -webkit-box; <span class="comment">/* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */</span></span><br><span class="line">  <span class="attribute">display</span>: -moz-box; <span class="comment">/* 老版本语法: Firefox (buggy) */</span></span><br><span class="line">  <span class="attribute">display</span>: -ms-flexbox; <span class="comment">/* 混合版本语法: IE 10 */</span></span><br><span class="line">  <span class="attribute">display</span>: -webkit-flex; <span class="comment">/* 新版本语法: Chrome 21+ */</span></span><br><span class="line">  <span class="attribute">display</span>: flex; <span class="comment">/* 新版本语法: Opera 12.1, Firefox 22+ */</span></span><br><span class="line">  <span class="attribute">-webkit-flex-wrap</span>: nowrap;</span><br><span class="line">  <span class="attribute">-ms-flex-wrap</span>: nowrap;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在 flex 中，最核心的概念就是容器和轴，所有的属性都是围绕容器和轴设置的。其中，容器分为父容器和子容器。轴分为主轴和交叉轴（主轴默认为水平方向，方向向右，交叉轴为主轴顺时针旋转 90°）。</p>
+</blockquote>
+<p>在使用 flex 的元素中，默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）<br>主轴开始的位置称为 <code>main start</code>，主轴结束的位置称为 <code>main end</code>。<br>同理，交叉轴开始的位置称为 <code>cross start</code>，交叉轴结束的位置称为 <code>cross end</code>。<br>在使用 flex 的子元素中，占据的主轴空间叫做 <code>main size</code>，占据的交叉轴空间叫做 <code>cross size</code>。<br><img src="flex01.png" alt="alt text" title="flex盒模型"></p>
+<h4 id="父容器属性"><a href="#父容器属性" class="headerlink" title="父容器属性"></a>父容器属性</h4><ul>
+<li>flex-direction：主轴的方向（即项目的排列方向</li>
+<li>flex-wrap：超出父容器子容器的排列样式。</li>
+<li>flex-flow：<code>flex-direction</code> 属性和 <code>flex-wrap</code> 属性的简写形式。</li>
+<li>justify-content：子容器在主轴的排列方向。</li>
+<li>align-items：子容器在交叉轴的排列方向。</li>
+<li>align-content：多根轴线的对齐方式。</li>
+</ul>
+<p>flex-direction 属性</p>
+<blockquote>
+<p><code>flex-direction</code> 属性决定主轴的方向（主轴的方向不一定是水平的，这个属性就是设置主轴的方向，主轴默认是水平方向，从左至右，如果主轴方向设置完毕，那么交叉轴就不需要设置，交叉轴永远是主轴顺时针旋转 90°）。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  flex-direction: row;              //默认值，主轴为水平方向，起点在左端</span><br><span class="line">  flex-direction: row-reverse;      //主轴为水平方向，起点在右端</span><br><span class="line">  flex-direction: column;           //主轴为垂直方向，起点在上沿</span><br><span class="line">  flex-direction: column-reverse;   //主轴为垂直方向，起点在下沿</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p><img src="flex02.png" alt="alt text" title="flex盒模型"><br>flex-wrap 属性</p>
+<p><code>flex-wrap</code> 属性决定子元素如果一条轴线排不下，如何换行<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line"> flex-wrap: nowrap;          // 默认，不换行</span><br><span class="line"> flex-wrap: wrap;            // 换行，第一行在上方。</span><br><span class="line"> flex-wrap: wrap-reverse     // 换行，第一行在下方。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="flex03.png" alt="alt text" title="flex盒模型"><br>flex-flow 属性</p>
+<p><code>flex-flow</code> 属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">flex-flow</span>: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>justify-content 属性</p>
+<p><code>justify-content</code> 属性定义了子容器在主轴上的对齐方式。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    justify-content: flex-start;      // 默认，左对齐</span><br><span class="line">    justify-content: flex-end;        // 右对齐</span><br><span class="line">    justify-content: center;          // 居中</span><br><span class="line">    justify-content: space-between;   // 两端对齐，项目之间的间隔都相等。</span><br><span class="line">    justify-content: space-around;    // 每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="flex04.png" alt="alt text" title="flex盒模型"><br>align-items 属性</p>
+<p>align-items属性定义子容器在交叉轴上如何对齐。<br>具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    align-items: flex-start;    // 交叉轴的起点对齐。</span><br><span class="line">    align-items: flex-end;      // 交叉轴的终点对齐。</span><br><span class="line">    align-items: center;        // 交叉轴的中点对齐。</span><br><span class="line">    align-items: baseline;      // 项目的第一行文字的基线对齐。</span><br><span class="line">    align-items: stretch;       // 默认，如果项目未设置高度或设为auto，将占满整个容器的高度。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="flex05.png" alt="alt text" title="flex盒模型"><br>align-content 属性</p>
+<p><code>align-content</code> 属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    align-content: flex-start;   // 与交叉轴的起点对齐</span><br><span class="line">    align-content: flex-end;     // 与交叉轴的终点对齐。</span><br><span class="line">    align-content: center;       // 与交叉轴的中点对齐。</span><br><span class="line">    align-content: space-between;// 与交叉轴两端对齐，轴线之间的间隔平均分布。</span><br><span class="line">    align-content: space-around; // 每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</span><br><span class="line">    align-content: stretch;      // 默认 轴线占满整个交叉轴。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="子容器属性"><a href="#子容器属性" class="headerlink" title="子容器属性"></a>子容器属性</h4><p>子容器也有 6 个属性：</p>
+<ul>
+<li>order：子容器的排列顺序</li>
+<li>flex-grow：子容器剩余空间的拉伸比例</li>
+<li>flex-shrink：子容器超出空间的压缩比例</li>
+<li>flex-basis：子容器在不伸缩情况下的原始尺寸</li>
+<li>flex：子元素的 flex 属性是 flex-grow,flex-shrink 和 flex-basis 的简写</li>
+<li>align-self</li>
+</ul>
+<p>order属性</p>
+<p><code>order</code>属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">order</span>: &lt;integer&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>flex-grow属性</p>
+<p><code>flex-grow</code> 属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。设置 flex-grow: 1 代表剩余空间要分配给该元素。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-grow</span>: &lt;number&gt;; <span class="comment">/* default 0 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>flex-shrink属性</p>
+<p><code>flex-shrink</code> 属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。]<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-shrink</span>: &lt;number&gt;; <span class="comment">/* default 1 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>flex-basis属性</p>
+<p><code>flex-basis</code> 属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-basis</span>: &lt;length&gt; | auto; <span class="comment">/* default auto */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>flex 属性<br>子元素的 <code>flex</code> 属性是 flex-grow,flex-shrink 和 flex-basis 的简写，默认值为 0 1 auto。后两个属性可选。</p>
+<blockquote>
+<p>该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: none | [ &lt;<span class="string">'flex-grow'</span>&gt; &lt;<span class="string">'flex-shrink'</span>&gt;? || &lt;<span class="string">'flex-basis'</span>&gt; ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>align-self属性</p>
+<p><code>align-self</code> 属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    align-self: auto;             // 继承父元素的 align-items 属性</span><br><span class="line">    align-self: flex-start;       // 交叉轴的起点对齐。</span><br><span class="line">    align-self: flex-end;         // 交叉轴的终点对齐。</span><br><span class="line">    align-self: center;           // 交叉轴的中点对齐。</span><br><span class="line">    align-self: baseline;         // 项目的第一行文字的基线对齐。</span><br><span class="line">    align-self: stretch;          // 默认，如果项目未设置高度或设为auto，将占满整个容器的高度。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="grid布局"><a href="#grid布局" class="headerlink" title="grid布局"></a>grid布局</h2><p>flex 布局虽然强大，但是只能是一维布局，如果要进行二维布局，那么我们还需要使用 grid。</p>
+<p>grid 布局又称为“网格布局”，可以实现二维布局方式，和之前的 表格<code>table</code>布局差不多，然而，这是使用 CSS 控制的，不是使用 HTML 控制的，同时还可以依赖于媒体查询根据不同的上下文得新定义布局。</p>
+<blockquote>
+<p>没有 HTML 结构的网格布局有助于使用流体、调整顺序等技术管理或更改布局。通过结合 CSS 的媒体查询属性，可以控制网格布局容器和他们的子元素，使用页面的布局根据不同的设备和可用空间调整元素的显示风格与定位，而不需要去改变文档结构的本质内容。</p>
+</blockquote>
+<p>浏览器兼容性<br><strong>桌面浏览器</strong><br><img src="grid01.jpg" alt="Alt text" title="grid兼容性"><br><strong>移动端 / 平板</strong><br><img src="grid01.jpg" alt="Alt text" title="grid兼容性"><br>除了微软之外，浏览器制造商在 Grid 规范完全落地以前似乎并没有放手让 Gird 野生也长的打算。 这是一件好事，这意味着我们不需要再去学习各种浏览器兼容版本的旧语法。<br>在生产环境中使用Grid只是时间问题，但现在是我们该学习的时候了.</p>
+<h3 id="grid-网格布局中的基本概念"><a href="#grid-网格布局中的基本概念" class="headerlink" title="grid 网格布局中的基本概念"></a>grid 网格布局中的基本概念</h3><p>此部分直接摘自<a href="http://www.w3cplus.com/css3/what-is-css-grid-layout.html" target="_blank" rel="noopener">CSS Grid布局：什么是网格布局</a><br><strong>网格线(Grid Lines)</strong><br>网格线组成了网格，他是网格的水平和垂直的分界线。一个网格线存在行或列的两侧。我们可以引用它的数目或者定义的网格线名称。<br><img src="css-grid-layout-1.jpg" alt="Alt text" title="grid网格线"><br><strong>网格轨道(Grid Track)</strong><br>网格轨道是就是相邻两条网格线之间的空间，就好比表格中行或列。所在在网格中其分为grid column和grid row。每个网格轨道可以设置一个大小，用来控制宽度或高度。<br><img src="css-grid-layout-2.jpg" alt="Alt text" title="grid网格轨道"><br><strong>网格单元格(Grid Cell)</strong><br>网格单元格是指四条网格线之间的空间。所以它是最小的单位，就像表格中的单元格。<br><img src="css-grid-layout-3.jpg" alt="Alt text" title="grid网格单元格"><br><strong>网格区域(Grid Area)</strong><br>网格区域是由任意四条网格线组成的空间，所以他可能包含一个或多个单元格。相当于表格中的合并单元格之后的区域。<br><img src="css-grid-layout-4.jpg" alt="Alt text" title="grid网格单元格"></p>
+<h3 id="使用grid布局"><a href="#使用grid布局" class="headerlink" title="使用grid布局"></a>使用grid布局</h3><p>使用 grid 布局很简单，通过display属性设置属性值为 grid 或 inline-grid 或者是 subgrid（该元素父元素为网格，继承父元素的行和列的大小） 就可以了。</p>
+<p>网格容器中的所有子元素就会自动变成网格项目（grid item），然后设置列（grid-template-columns）和 行（grid-template-rows）的大小，设置 grid-template-columns 有多少个参数生成的 grid 列表就有多少个列。</p>
+<p><code>注</code>：当元素设置了网格布局，column、float、clear、vertical-align属性无效。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line"><span class="attribute">grid-template-columns</span>: &lt;track-size&gt; ... | &lt;line-name&gt; &lt;track-size&gt; ...;</span><br><span class="line"><span class="attribute">grid-template-rows</span>: &lt;track-size&gt; ... | &lt;line-name&gt; &lt;track-size&gt; ...;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果没有设置 grid-template-columns，那么默认只有一列，宽度为父元素的 100%，例如</p>
+<p>为了帮助我们更好的理解，在每个 items(子元素) 加上了单独的 class ：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item item1"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item item2"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item item3"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item item4"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item item5"</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item item6"</span>&gt;</span>6<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>(如果未显示的给网格线命名)，轨道值之间仅仅有空格时，网格线会被自动分配数字名称：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.grid-container</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">background</span>:<span class="number">#f0f0f0</span>;</span><br><span class="line">    <span class="attribute">grid-template-rows</span>: <span class="number">50px</span> <span class="number">80px</span> <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item1</span>&#123;<span class="attribute">background</span>: <span class="number">#FF9999</span>;&#125;</span><br><span class="line"><span class="selector-class">.item2</span>&#123;<span class="attribute">background</span>: <span class="number">#CCFFFF</span>;&#125;</span><br><span class="line"><span class="selector-class">.item3</span>&#123;<span class="attribute">background</span>: <span class="number">#FFCCCC</span>;&#125;</span><br><span class="line"><span class="selector-class">.item4</span>&#123;<span class="attribute">background</span>: <span class="number">#99CCCC</span>;&#125;</span><br><span class="line"><span class="selector-class">.item5</span>&#123;<span class="attribute">background</span>: <span class="number">#FFCC99</span>;&#125;</span><br><span class="line">.item6&#123;background: #99CCFF;;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>显示如下<br><img src="grid03.png" alt="不设置grid-template-columns" title="不设置grid-template-columns"><br>设置了 grid-template-columns 的话，设置了几个参数，就有几列（不超过 grid item 的个数），然后设置的 grid-template-rows 参数就是每一列的高度（超出列数的高度无效）<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.grid-container</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">background</span>:<span class="number">#f0f0f0</span>;</span><br><span class="line">    <span class="attribute">grid-template-rows</span>: <span class="number">50px</span> <span class="number">100px</span> <span class="number">60px</span> <span class="number">80px</span>;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="number">50px</span> <span class="number">40px</span> <span class="number">100px</span> <span class="number">80px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>虽然我们设置了四个 grid-template-rows，但是因为只有两行，所以只有前两个值生效。效果如下：<br><img src="grid04.png" alt="设置grid-template-columns" title="设置grid-template-columns"></p>
+<blockquote>
+<p>css fr 单位是一个自适应单位，fr单位被用于在一系列长度值中分配剩余空间，如果多个已指定了多个部分，则剩下的空间根据各自的数字按比例分配。</p>
+</blockquote>
+<p>“fr”单位允许我们将轨道大小设置为网格容器自由空间的一部分。 例如，下面的代码会将每个 grid item 为 grid container 宽度的三分之一：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.grid-container</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">background</span>:<span class="number">#f0f0f0</span>;</span><br><span class="line">    <span class="attribute">grid-template-rows</span>: <span class="number">50px</span> <span class="number">100px</span> <span class="number">60px</span> <span class="number">80px</span>;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="number">1</span>fr <span class="number">1</span>fr <span class="number">1</span>fr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>效果如下<br><img src="grid05.png" alt="使用fr按比例设置宽度" title="使用fr按比例设置宽度"></p>
+<h3 id="重复行或者列"><a href="#重复行或者列" class="headerlink" title="重复行或者列"></a>重复行或者列</h3><p><code>repeat()</code> 属性可以创建重复的网格轨道。这个适用于创建相等尺寸的网格项目和多个网格项目。<br><code>repeat()</code> 也接受两个参数：第一个参数定义网格轨道应该重复的次数，第二个参数定义每个轨道的尺寸。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.grid-container</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(2,100px);</span><br><span class="line">    <span class="attribute">grid-template-rows</span>: <span class="built_in">repeat</span>(3,100px);</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#f0f0f0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>效果如下<br><img src="grid06.png" alt="重复行或者列" title="重复行或者列"></p>
+<h3 id="间距"><a href="#间距" class="headerlink" title="间距"></a>间距</h3><p><code>grid-column-gap</code>：创建列与列之间的距离。<br><code>grid-row-gap</code>：行与行之间的距离。<br>显示如下<br><img src="grid07.png" alt="设置间距" title="设置间距"><br>或者使用 grid-gap 是 grid-row-gap 和 grid-column-gap两个属性的缩写。</p>
+<h3 id="通过网格线定位-grid-item"><a href="#通过网格线定位-grid-item" class="headerlink" title="通过网格线定位 grid item"></a>通过网格线定位 grid item</h3><p>justify-items 属性</p>
+<p>沿着行轴对齐网格内的内容（与之对应的是 align-items, 即沿着列轴对齐），该值适用于容器内的所有的 grid items。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  justify-items: start;   //内容与网格区域的左端对齐</span><br><span class="line">  justify-items: end;     //内容与网格区域的右端对齐</span><br><span class="line">  justify-items: center;  //内容位于网格区域的中间位置</span><br><span class="line">  justify-items: stretch; //默认值,内容宽度占据整个网格区域空间</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我们可以通过表格线行或者列来定位 grid item。比如：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.grid-container</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(2,100px);</span><br><span class="line">    <span class="attribute">grid-template-rows</span>: <span class="built_in">repeat</span>(3,100px);</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#f0f0f0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item1</span>&#123;</span><br><span class="line">    <span class="attribute">grid-row-start</span>: <span class="number">2</span>;</span><br><span class="line">    <span class="attribute">grid-row-end</span>: <span class="number">3</span>;</span><br><span class="line">    <span class="attribute">grid-column-start</span>: <span class="number">2</span>;</span><br><span class="line">    <span class="attribute">grid-column-end</span>: <span class="number">3</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#fffa90</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>效果如下<br><img src="grid08.png" alt="通过网格线定位 grid item" title="通过网格线定位 grid item"></p>
+<p><code>grid-row</code> 是 <code>grid-row-start</code> 和 <code>grid-row-end</code> 的简写。<code>grid-column</code> 是 <code>grid-column-start</code> 和 <code>grid-column-end</code> 的简写。</p>
+<p>如果只提供一个值，指定了 <code>grid-row-start</code> 和 <code>grid-column-start</code> 的值。</p>
+<p>如果提供两个值，第一个值是 <code>grid-row-start</code> 或者 <code>grid-column-start</code> 的值，第二个值是 <code>grid-row-end</code> 或者 <code>grid-column-end</code> 的值，两者之间必须要用/隔开。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grid-row: 2; </span><br><span class="line">grid-column: 3 / 4;</span><br></pre></td></tr></table></figure></p>
+<p>这四个值可以用 <code>grid-area</code> 缩写，分别对应 <code>grid-row-start</code>、<code>grid-column-start</code>、<code>grid-row-end</code>、<code>grid-column-end</code>：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid-area: 2 / 2 / 3 / 3;</span><br></pre></td></tr></table></figure></p>
+<h3 id="合并单元行与合并单元列"><a href="#合并单元行与合并单元列" class="headerlink" title="合并单元行与合并单元列"></a>合并单元行与合并单元列</h3><p>初始版<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">grid-column-start: 1;</span><br><span class="line">grid-column-end: 3;</span><br><span class="line">grid-row-start: 2;</span><br><span class="line">grid-row-end: 4;</span><br></pre></td></tr></table></figure></p>
+<p>也可以使用 grid-row 和 grid-column 简写的形式，关键词 span 后面紧随数字，表示合并多少个列或行，/ 前面是从第几行/列开始<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grid-row: 2 / span 3; </span><br><span class="line">grid-column: span 2;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.grid-container</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(4,100px);</span><br><span class="line">    <span class="attribute">grid-template-rows</span>: <span class="built_in">repeat</span>(3,100px);</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#f0f0f0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item1</span>&#123;</span><br><span class="line">    <span class="attribute">grid-column-start</span>: <span class="number">1</span>;</span><br><span class="line">    <span class="attribute">grid-column-end</span>: <span class="number">3</span>;</span><br><span class="line">    <span class="attribute">grid-row-start</span>: <span class="number">2</span>;</span><br><span class="line">    <span class="attribute">grid-row-end</span>: <span class="number">4</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#fffa90</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>效果如下<br><img src="grid09.png" alt="合并单元行与合并单元列" title="合并单元行与合并单元列"></p>
+<h3 id="自定义网格线名称"><a href="#自定义网格线名称" class="headerlink" title="自定义网格线名称"></a>自定义网格线名称</h3><p>在 grid 中，是可以自定义网格线的名称的，然后使用定义好的网格线来进行布局，[col1-start] 网格线名称一定要使用 [] 括住。<br>ps: 一个网格线可以有不止一个名字。例如，这里第2条网格线有两个名字：row1-end 和 row2-start：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">grid-template-rows</span>: [row1-start] <span class="number">25%</span> [row1-end row2-start] <span class="number">25%</span> [row2-end];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.grid-container</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: [col1-start] <span class="number">100px</span> [col1-end] <span class="number">100px</span> [col2-start] <span class="number">100px</span> [col2-end] <span class="number">100px</span> [col3-start] <span class="number">100px</span> [col3-end];</span><br><span class="line">    <span class="attribute">grid-template-rows</span>: [row1-start] <span class="number">100px</span> [row1-end] <span class="number">100px</span> [row2-start] auto [row2-end] <span class="number">100px</span> [row3-start] auto [row3-end];</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#f0f0f0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item1</span>&#123;</span><br><span class="line">    <span class="attribute">grid-column</span>: col1-start / col3-start;</span><br><span class="line">    <span class="attribute">grid-row</span>: row1-start;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#FF9999</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item2</span>&#123;</span><br><span class="line">    <span class="attribute">grid-column</span>: col3-start / col3-end;</span><br><span class="line">    <span class="attribute">grid-row</span>: row1-start;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#CCFFFF</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item3</span>&#123;</span><br><span class="line">    <span class="attribute">grid-column</span>: col1-start;</span><br><span class="line">    <span class="attribute">grid-row</span>: row1-end / row3-end;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#FFCCCC</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item4</span>&#123;</span><br><span class="line">    <span class="attribute">grid-column</span>: col1-end / col3-end;</span><br><span class="line">    <span class="attribute">grid-row</span>: row1-end / row2-end;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#99CCCC</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item5</span>&#123;</span><br><span class="line">    <span class="attribute">grid-column</span>: col1-end / col2-end;</span><br><span class="line">    <span class="attribute">grid-row</span>: row2-end / row3-end;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#FFCC99</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item6</span>&#123;</span><br><span class="line">    <span class="attribute">grid-column</span>: col2-end / col3-end;</span><br><span class="line">    <span class="attribute">grid-row</span>: row2-end / row3-end;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#99CCFF</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>效果如下<br><img src="grid10.png" alt="自定义网格线名称" title="自定义网格线名称"></p>
+<h3 id="通过网格区域命名和定位网格项目"><a href="#通过网格区域命名和定位网格项目" class="headerlink" title="通过网格区域命名和定位网格项目"></a>通过网格区域命名和定位网格项目</h3><p>什么是网格区域：</p>
+<blockquote>
+<p>网格区域(grid-area)是一个逻辑空间，主要用来放置一个或多个网格单元格（Grid Cell）。他是由四条网格线(Grid line)，网格区域每边一条，四边相交组织的网格轨道(Grid Track)。简单点理解，网格区域是有四条网格线交织组成的网格空间，这个空间中可能是一个网格单元格，也可能是多个网格单元格</p>
+</blockquote>
+<h4 id="定义网格区域"><a href="#定义网格区域" class="headerlink" title="定义网格区域"></a>定义网格区域</h4><p>在CSS Grid Layout中定义网格区域有两种方式，一种是通过网格线来定义，另一种是通过grid-template-areas来定义。接下来看看两种定义网格区域的方法在具体使用过程中有何不同。</p>
+<h4 id="网格线定义网格区域"><a href="#网格线定义网格区域" class="headerlink" title="网格线定义网格区域"></a>网格线定义网格区域</h4><p>使用网格线定义网格区域的方法非常的简单，首先依赖于 <code>grid-template-columns</code> 和 <code>grid-template-rows</code> 显式定义网格线，甚至是由浏览器隐式创建网格线，然后通过 <code>grid-area</code> 属性通过取网格线，组成网格线交织区域，那么这个区域就是所讲的网格区域。在使用 <code>grid-area</code> 属性调用网格线，其遵循的规则是 <code>grid-area: row-start</code>/ <code>column-start</code> / <code>row-end</code> / <code>column-end</code>。</p>
+<h4 id="grid-template-areas-定义网格区域"><a href="#grid-template-areas-定义网格区域" class="headerlink" title="grid-template-areas 定义网格区域"></a>grid-template-areas 定义网格区域</h4><p>通过引用 grid-area属性指定的网格区域的名称来定义网格模板。 重复网格区域的名称导致内容扩展到这些单元格。 点号表示一个空单元格。 语法本身提供了网格结构的可视化。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"grid-container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header "</span>&gt;</span>header<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content "</span>&gt;</span>content<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"sidebar "</span>&gt;</span>sidebar<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer "</span>&gt;</span>footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.grid-container</span>&#123;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-column-gap</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">grid-row-gap</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">background</span>: pink;</span><br><span class="line">    <span class="attribute">grid-template-areas</span>: <span class="string">"header header header header header"</span></span><br><span class="line">                         <span class="string">"sidebar content content content ."</span></span><br><span class="line">                         <span class="string">"footer footer footer footer footer"</span>;</span><br><span class="line">    <span class="attribute">grid-template-rows</span>: <span class="number">50px</span> <span class="number">150px</span> <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="number">200px</span> <span class="number">200px</span> <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.header</span> &#123; <span class="attribute">grid-area</span>:header; <span class="attribute">background</span>: <span class="number">#fff</span>&#125;</span><br><span class="line"><span class="selector-class">.content</span> &#123; <span class="attribute">grid-area</span>: content; <span class="attribute">background</span>: <span class="number">#fffa90</span>&#125;</span><br><span class="line"><span class="selector-class">.sidebar</span> &#123; <span class="attribute">grid-area</span>: sidebar; <span class="attribute">background</span>: <span class="number">#5bc0de</span>&#125;</span><br><span class="line"><span class="selector-class">.footer</span> &#123; <span class="attribute">grid-area</span>: footer; <span class="attribute">background</span>: <span class="number">#ffff00</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>效果如下<br><img src="grid11.png" alt="grid-template-areas 定义网格区域" title="grid-template-areas 定义网格区域"><br>我发现这样布局的一个优点，在不设置高度的情况下（父容器和 <code>grid-template-rows</code> 的值，或者 <code>grid-template-rows</code> 设置为 auto 时，<code>slider</code> 和 <code>content</code> 的高度是一致的，并且会根据其内的高度自适应）</p>
+<h2 id="css常用布局"><a href="#css常用布局" class="headerlink" title="css常用布局"></a>css常用布局</h2><h3 id="CSS实现水平居中"><a href="#CSS实现水平居中" class="headerlink" title="CSS实现水平居中"></a>CSS实现水平居中</h3><p>一般水平居中还是比较容易的，我一般都是先看子元素是固定宽度还是宽度未知</p>
+<h4 id="固定宽度"><a href="#固定宽度" class="headerlink" title="固定宽度"></a>固定宽度</h4><p>这种方式是绝对定位居中，除了使用 margin，我们还可以使用 transform<br><code>[注意]</code>IE9-浏览器不支持</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#09f</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.inner</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>: -<span class="number">25px</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#09f</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.inner</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%, -50%);</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也可以使用margin: 0 auto;但是第一种方法全兼容哦</p>
+<p>宽度未知</p>
+<p>将子元素的display为table，使子元素成为块级元素，同时table还具有包裹性，宽度由内容撑开<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.inner</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: table;   </span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在父元素中设置text-align:center，子元素设置display:inline-block;实现行内元素水平居中<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#09f</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.inner</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>多个块状元素</p>
+<p>上面的方式即使子元素不止一个也想实现水平居中也是有效的，（宽度固定不固定都可，不固定的话就不需要设置宽度，会被自动撑开，但是要考虑到撑爆的情况）例如：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">250px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#09f</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.inner</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用弹性盒模型flex实现水平居中<br><code>[注意]</code>IE9-浏览器不支持</p>
+<pre><code>【1】在伸缩容器上设置主轴对齐方式jusify-content:center
+【2】在伸缩项目上设置margin: 0 auto
+</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined">   </span></span><br><span class="line"><span class="css"><span class="selector-class">.container</span>&#123;</span></span><br><span class="line"><span class="undefined">    width: 250px;</span></span><br><span class="line"><span class="undefined">    height: 200px;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">background</span>: <span class="selector-id">#09f</span>;</span></span><br><span class="line"><span class="undefined">    position: relative;</span></span><br><span class="line"><span class="undefined">    display: flex;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">jusify-content</span><span class="selector-pseudo">:center</span>;</span></span><br><span class="line"><span class="undefined">&#125;   </span></span><br><span class="line"><span class="css"><span class="selector-class">.inner</span>&#123;</span></span><br><span class="line"><span class="undefined">    margin: 0 auto;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="固定高度"><a href="#固定高度" class="headerlink" title="固定高度"></a>固定高度</h3><h4 id="单行行内元素"><a href="#单行行内元素" class="headerlink" title="单行行内元素"></a>单行行内元素</h4><p>单行行内元素居中，只需要将子元素的行高等于高度就可以了</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>: pink;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.inner</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="多行元素"><a href="#多行元素" class="headerlink" title="多行元素"></a>多行元素</h4><p>多行元素不能像上面设置line-height了，对于多行的行内元素是处理不了的，可以把一些 div 的显示方式设置为表格，因此我们可以使用表格的 vertical-align property 属性</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#09f</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">display</span>: table;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.inner</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: table-cell;</span><br><span class="line">    <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>table-cell使用<br>优点：内容可以动态改变高度(不需在 CSS 中定义)。当 container 里没有足够空间时， 内容不会被截断；<br>缺点：Internet Explorer(甚至 IE8 beta)中无效，许多嵌套标签</p>
+<p>还有一个方法是设置一个空的行内元素，使其 height:100%,display:inline-block,vertical-align: middle; 并且 font-size:0，要设置一个空元素，高度和父元素相等，并且设置垂直居中的属性。但是，这只是用与所有的行内元素的宽度和不超过父元素的宽度的情况</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"test.jpg"</span> <span class="attr">width</span>=<span class="string">"50px"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"test.jpg"</span> <span class="attr">width</span>=<span class="string">"50px"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"test.jpg"</span> <span class="attr">width</span>=<span class="string">"50px"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>123<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#09f</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">p</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>效果如下：<br><img src="vertical.png" alt="alt" title="垂直居中"></p>
+<p>还有一个方法，在需要居中的content元素前面插入一个div,设置此<code>div</code> <code>height:50%; margin-bottom:-contentheight;</code><br>content清楚浮动，并显示在中间</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"floater"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span>Content here<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#09f</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#floater</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin-bottom</span>: -<span class="number">120px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#content</span> &#123;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">240px</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">background</span>: gray;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>优点：适用于所有的浏览器，没有足够空间时(例如：窗口缩小) content 不会被截断，滚动条出现<br>缺点：唯一我能想到的就是需要额外的空元素了<br>效果如下<br><img src="vertical02.png" alt="alt" title="垂直居中"></p>
+<h4 id="图片与文字居中"><a href="#图片与文字居中" class="headerlink" title="图片与文字居中"></a>图片与文字居中</h4><p>经常有看到设计稿是图片和文字垂直居中的，那么怎么才能让图片和文字垂直居中呢？<br>只需要给图片一个 vertical-align: middle; 属性就可以：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"WechatIMG110.jpg"</span> <span class="attr">height</span>=<span class="string">"260"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>123456<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#0000ff</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-tag">p</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>效果图如下：<br><img src="vertical03.png" alt="alt text" title="垂直居中"></p>
+<h2 id="圣杯布局"><a href="#圣杯布局" class="headerlink" title="圣杯布局"></a>圣杯布局</h2><p>圣杯布局的特点</p>
+<ul>
+<li>三列布局，中间宽度自适应，两边定宽；</li>
+<li>中间栏要在浏览器中优先展示渲染；</li>
+<li>允许任意列的高度最高；<br>效果如下</li>
+</ul>
+<p>这个布局方式的关键是怎么样才能使得在伸缩浏览器窗口的时候让中间的子元素宽度改变。可以适应浏览器的宽度变化使用百分比设置宽度再合适不过，所以我们要将中间子元素的宽度设置为 100%，左边和右边的子元素设置为固定的宽度。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/css/" rel="tag"># css</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2018/06/07/JavaScript数组方法/" rel="next" title="JavaScript数组方法">
+                <i class="fa fa-chevron-left"></i> JavaScript数组方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2019/05/26/本地仓库上传到Github/" rel="prev" title="本地仓库上传到Gitee">
+                本地仓库上传到Gitee <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/blog/images/avatar.jpg"
+                alt="elfecho" />
+            
+              <p class="site-author-name" itemprop="name">elfecho</p>
+              <p class="site-description motion-element" itemprop="description">擅长各项前端技能，深入研究移动端开发与前端性能。非专业视觉设计师。此为博客一枚。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/blog/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/blog/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/blog/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://111.230.18.124" title="个人主页" target="_blank">个人主页</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+          <!-- 网易云音乐 
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=31421442&auto=1&height=66"></iframe> -->
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#传统盒模型"><span class="nav-number">1.</span> <span class="nav-text">传统盒模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文档流布局"><span class="nav-number">1.1.</span> <span class="nav-text">文档流布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮动布局"><span class="nav-number">1.2.</span> <span class="nav-text">浮动布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么情况下需要清除浮动？"><span class="nav-number">1.2.1.</span> <span class="nav-text">什么情况下需要清除浮动？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清除浮动的3种办法"><span class="nav-number">1.2.2.</span> <span class="nav-text">清除浮动的3种办法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定位布局"><span class="nav-number">1.3.</span> <span class="nav-text">定位布局</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flex-布局"><span class="nav-number">2.</span> <span class="nav-text">flex 布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#flex是什么"><span class="nav-number">2.1.</span> <span class="nav-text">flex是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-flex-布局"><span class="nav-number">2.2.</span> <span class="nav-text">使用 flex 布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#父容器属性"><span class="nav-number">2.2.1.</span> <span class="nav-text">父容器属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#子容器属性"><span class="nav-number">2.2.2.</span> <span class="nav-text">子容器属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grid布局"><span class="nav-number">3.</span> <span class="nav-text">grid布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#grid-网格布局中的基本概念"><span class="nav-number">3.1.</span> <span class="nav-text">grid 网格布局中的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用grid布局"><span class="nav-number">3.2.</span> <span class="nav-text">使用grid布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重复行或者列"><span class="nav-number">3.3.</span> <span class="nav-text">重复行或者列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#间距"><span class="nav-number">3.4.</span> <span class="nav-text">间距</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过网格线定位-grid-item"><span class="nav-number">3.5.</span> <span class="nav-text">通过网格线定位 grid item</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并单元行与合并单元列"><span class="nav-number">3.6.</span> <span class="nav-text">合并单元行与合并单元列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义网格线名称"><span class="nav-number">3.7.</span> <span class="nav-text">自定义网格线名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过网格区域命名和定位网格项目"><span class="nav-number">3.8.</span> <span class="nav-text">通过网格区域命名和定位网格项目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义网格区域"><span class="nav-number">3.8.1.</span> <span class="nav-text">定义网格区域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网格线定义网格区域"><span class="nav-number">3.8.2.</span> <span class="nav-text">网格线定义网格区域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#grid-template-areas-定义网格区域"><span class="nav-number">3.8.3.</span> <span class="nav-text">grid-template-areas 定义网格区域</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css常用布局"><span class="nav-number">4.</span> <span class="nav-text">css常用布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS实现水平居中"><span class="nav-number">4.1.</span> <span class="nav-text">CSS实现水平居中</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#固定宽度"><span class="nav-number">4.1.1.</span> <span class="nav-text">固定宽度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#固定高度"><span class="nav-number">4.2.</span> <span class="nav-text">固定高度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单行行内元素"><span class="nav-number">4.2.1.</span> <span class="nav-text">单行行内元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多行元素"><span class="nav-number">4.2.2.</span> <span class="nav-text">多行元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图片与文字居中"><span class="nav-number">4.2.3.</span> <span class="nav-text">图片与文字居中</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#圣杯布局"><span class="nav-number">5.</span> <span class="nav-text">圣杯布局</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">elfecho</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">14k</span>
+  
+</div>
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="hexo,git,github,node.js," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Github pages + hexo 优雅地打造免费个人静态网页博客 前言：近期觉得写博客必须养成习惯，一方面养成做笔记做总结的习惯，同时也能做些生活记录，提高写作能力，其实有很多不错的博客平台都可以用，自然曝光率可能也比较高，但是咱好歹也是程序员，博客网站不自己搭建一个感觉也不太好，后来发现很多大牛的个人博客都在用hexo，折腾了一下觉得简单又实用，markdown编写git发布，静态网页速度">
+<meta name="keywords" content="hexo,git,github,node.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo搭建">
+<meta property="og:url" content="elfecho.github.io/2018/01/29/hexo/index.html">
+<meta property="og:site_name" content="Elfecho’Blog">
+<meta property="og:description" content="Github pages + hexo 优雅地打造免费个人静态网页博客 前言：近期觉得写博客必须养成习惯，一方面养成做笔记做总结的习惯，同时也能做些生活记录，提高写作能力，其实有很多不错的博客平台都可以用，自然曝光率可能也比较高，但是咱好歹也是程序员，博客网站不自己搭建一个感觉也不太好，后来发现很多大牛的个人博客都在用hexo，折腾了一下觉得简单又实用，markdown编写git发布，静态网页速度">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-18T14:39:02.950Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo搭建">
+<meta name="twitter:description" content="Github pages + hexo 优雅地打造免费个人静态网页博客 前言：近期觉得写博客必须养成习惯，一方面养成做笔记做总结的习惯，同时也能做些生活记录，提高写作能力，其实有很多不错的博客平台都可以用，自然曝光率可能也比较高，但是咱好歹也是程序员，博客网站不自己搭建一个感觉也不太好，后来发现很多大牛的个人博客都在用hexo，折腾了一下觉得简单又实用，markdown编写git发布，静态网页速度">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"没有找到与[${query}]相关的内容","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="elfecho.github.io/2018/01/29/hexo/"/>
+
+
+
+
+
+  <title>hexo搭建 | Elfecho’Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c491056d7021e5c248129f6222a89004";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Elfecho’Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">有空时来歇歇脚吧</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="elfecho.github.io/blog/2018/01/29/hexo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="elfecho">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Elfecho’Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">hexo搭建</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-29T11:37:54+08:00">
+                2018-01-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            
+            
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Github-pages-hexo-优雅地打造免费个人静态网页博客"><a href="#Github-pages-hexo-优雅地打造免费个人静态网页博客" class="headerlink" title="Github pages + hexo 优雅地打造免费个人静态网页博客"></a>Github pages + hexo 优雅地打造免费个人静态网页博客</h2><blockquote>
+<p>前言：近期觉得写博客必须养成习惯，一方面养成做笔记做总结的习惯，同时也能做些生活记录，提高写作能力，其实有很多不错的博客平台都可以用，自然曝光率可能也比较高，但是咱好歹也是程序员，博客网站不自己搭建一个感觉也不太好，后来发现很多大牛的个人博客都在用hexo，折腾了一下觉得简单又实用，markdown编写git发布，静态网页速度快，稳定性高，还利于搜索引擎收录，对于博客程序来说这一切足够了。</p>
+</blockquote>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>必要环境及工具的下载：<br>Node.js 安装后也会安装好 npm 包管理工具。<br>Git 用于提交代码的工具，mac下安装了xcode则忽略这步。<br>需要一个Github账号，使用它提供的 Pages 功能就可以拥有一个静态网站空间，而且是免费的。国内的 Coding 也能做到同样的事，这里我还是选择github作为例子，原理都一样按需选择。</p>
+<h3 id="安装HEXO博客程序"><a href="#安装HEXO博客程序" class="headerlink" title="安装HEXO博客程序"></a>安装HEXO博客程序</h3><p>windows在磁盘随便一个目录空白处右键选择在此处打开GitBash (使用cmd也可以，不推荐)</p>
+<p>在终端执行以下命令安装hexo (以下所有命令在windows下都不需要加sudo)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure></p>
+<h3 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h3><p>创建一个文件夹用于存放博客资源目录，在该目录下打开终端执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure></p>
+<p>第一次初始化需要稍作等待，完成后再执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure></p>
+<p>该命令作用是构建文章页面，就是生成静态网页，最后执行：hexo s</p>
+<p>此时自动启动本地测试服务器，浏览器访问 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 即可查看初始化好的博客。</p>
+<p>初始化博客可能报错：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR Plugin load failed: hexo-server</span><br></pre></td></tr></table></figure></p>
+<p>解决方法：执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install hexo-server</span><br></pre></td></tr></table></figure></p>
+<h3 id="部署博客"><a href="#部署博客" class="headerlink" title="部署博客"></a>部署博客</h3><p>经过以上步骤，我们已经可以将博客程序跑起来了，非常简单。接下来就要将它与Pages关联。</p>
+<blockquote>
+<p>登录github并创建一个repository，点击“New repository”创建存放博客的仓库，注意仓库名必须为xxx(自定义前缀).github.io，这个也是你博客默认的访问地址。<br>进入博客资源目录(即刚刚初始化的目录)，打开根目录的_config.yml文件，在末尾添加：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">    <span class="built_in">type</span>: git</span><br><span class="line">    repository: https://github.com/xxx/xxx.github.io.git</span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure>
+<p>仓库地址为前面创建的<code>github</code>仓库地址<br>接着在终端执行以下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<p>cd到博客目录执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
+<p>你会发现博客已经部署到giuhub仓库中，可以通过外网访问了。</p>
+<h3 id="开始写博客"><a href="#开始写博客" class="headerlink" title="开始写博客"></a>开始写博客</h3><p>安装一个编写md文件的工具，例如我使用的是MacDown。<br>cd到博客目录执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"postName"</span> //创建文章。</span><br></pre></td></tr></table></figure>
+<p>博客目录下的source/_posts找到你创建的文章，打开直接编写即可。<br><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">hexo中文文档</a></p>
+<h3 id="发布你的博客"><a href="#发布你的博客" class="headerlink" title="发布你的博客"></a>发布你的博客</h3><p>每次编写博客的步骤：<br>本地写好博客</p>
+<pre><code>1. 打开终端，cd到博客目录，执行 hexo clean 清空缓存
+2. 执行 hexo g 构建文章页面
+3. 执行 hexo s 本地预览整个站点
+4. 执行 hexo d 发布到Pages更新线上博客
+</code></pre><h3 id="博客绑定自己的域名"><a href="#博客绑定自己的域名" class="headerlink" title="博客绑定自己的域名"></a>博客绑定自己的域名</h3><p>域名解析CNAME记录到你仓库的默认域名，创建一个文本，写上你解析的域名，放在仓库根目录即可。</p>
+<p>重新生成网页文件会把 CNAME 文件覆盖掉，需要直接把 CNAME 文件添加到 source 文件夹里，这样每次推的时候就不用担心仓库里的 CNAME 文件被覆盖掉了。<br>仓库设置中出现Domain’s DNS record could not be retrieved.提示说明CNAME文件出错，检查该文件域名是否拼写错误，注意不要加http前缀。</p>
+<h3 id="博客美化"><a href="#博客美化" class="headerlink" title="博客美化"></a>博客美化</h3><p>hexo拥有大量优秀主题，本站使用 <a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">next 主题</a>。<br>next主题支持配置多种评论系统，本站使用畅言。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/hexo/" rel="tag"># hexo</a>
+          
+            <a href="/blog/tags/git/" rel="tag"># git</a>
+          
+            <a href="/blog/tags/github/" rel="tag"># github</a>
+          
+            <a href="/blog/tags/node-js/" rel="tag"># node.js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2018/01/29/html基础/" rel="next" title="html基础">
+                <i class="fa fa-chevron-left"></i> html基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2018/03/14/es6语法/" rel="prev" title="es6之扩展变量">
+                es6之扩展变量 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/blog/images/avatar.jpg"
+                alt="elfecho" />
+            
+              <p class="site-author-name" itemprop="name">elfecho</p>
+              <p class="site-description motion-element" itemprop="description">擅长各项前端技能，深入研究移动端开发与前端性能。非专业视觉设计师。此为博客一枚。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/blog/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/blog/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/blog/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://111.230.18.124" title="个人主页" target="_blank">个人主页</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+          <!-- 网易云音乐 
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=31421442&auto=1&height=66"></iframe> -->
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Github-pages-hexo-优雅地打造免费个人静态网页博客"><span class="nav-number">1.</span> <span class="nav-text">Github pages + hexo 优雅地打造免费个人静态网页博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备工作"><span class="nav-number">1.1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装HEXO博客程序"><span class="nav-number">1.2.</span> <span class="nav-text">安装HEXO博客程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化博客"><span class="nav-number">1.3.</span> <span class="nav-text">初始化博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署博客"><span class="nav-number">1.4.</span> <span class="nav-text">部署博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始写博客"><span class="nav-number">1.5.</span> <span class="nav-text">开始写博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发布你的博客"><span class="nav-number">1.6.</span> <span class="nav-text">发布你的博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#博客绑定自己的域名"><span class="nav-number">1.7.</span> <span class="nav-text">博客绑定自己的域名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#博客美化"><span class="nav-number">1.8.</span> <span class="nav-text">博客美化</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">elfecho</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">14k</span>
+  
+</div>
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

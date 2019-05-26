@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="html," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="这几天在使用wepy时，发现了pug，一开始看是哈巴狗，不过原作者的名字是jade，pug是一套外观优雅并且功能丰富的模板引擎。目前，越来越多的公司和开发者使用pug取代html作为模板语言 pug安装与编译安装安装很简单1npm install pug 不过这样子安装可能会出现pug不是内部命令的错误提示,在npm的pug页面也有提示，我们可以用1npm install -g pug-cli 编">
+<meta name="keywords" content="html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pug模板">
+<meta property="og:url" content="elfecho.github.io/2018/04/17/pug模板/index.html">
+<meta property="og:site_name" content="Elfecho’Blog">
+<meta property="og:description" content="这几天在使用wepy时，发现了pug，一开始看是哈巴狗，不过原作者的名字是jade，pug是一套外观优雅并且功能丰富的模板引擎。目前，越来越多的公司和开发者使用pug取代html作为模板语言 pug安装与编译安装安装很简单1npm install pug 不过这样子安装可能会出现pug不是内部命令的错误提示,在npm的pug页面也有提示，我们可以用1npm install -g pug-cli 编">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-07T15:29:30.177Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="pug模板">
+<meta name="twitter:description" content="这几天在使用wepy时，发现了pug，一开始看是哈巴狗，不过原作者的名字是jade，pug是一套外观优雅并且功能丰富的模板引擎。目前，越来越多的公司和开发者使用pug取代html作为模板语言 pug安装与编译安装安装很简单1npm install pug 不过这样子安装可能会出现pug不是内部命令的错误提示,在npm的pug页面也有提示，我们可以用1npm install -g pug-cli 编">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"没有找到与[${query}]相关的内容","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="elfecho.github.io/2018/04/17/pug模板/"/>
+
+
+
+
+
+  <title>pug模板 | Elfecho’Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c491056d7021e5c248129f6222a89004";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Elfecho’Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">有空时来歇歇脚吧</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="elfecho.github.io/blog/2018/04/17/pug模板/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="elfecho">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Elfecho’Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">pug模板</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-17T19:16:02+08:00">
+                2018-04-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            
+            
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.2k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这几天在使用wepy时，发现了pug，一开始看是哈巴狗，不过原作者的名字是jade，pug是一套外观优雅并且功能丰富的模板引擎。目前，越来越多的公司和开发者使用pug取代html作为模板语言</p>
+<h2 id="pug安装与编译"><a href="#pug安装与编译" class="headerlink" title="pug安装与编译"></a>pug安装与编译</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装很简单<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install pug</span><br></pre></td></tr></table></figure></p>
+<p>不过这样子安装可能会出现pug不是内部命令的错误提示,在npm的pug页面也有提示，我们可以用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g pug-cli</span><br></pre></td></tr></table></figure></p>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><p>先写一个简单的index.pug<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">doctype html</span><br><span class="line">html(lang=&apos;en&apos;)</span><br><span class="line">head</span><br><span class="line">        title hello pug</span><br><span class="line">    body</span><br><span class="line">        h1 pug pug</span><br><span class="line">        a.button</span><br><span class="line">        a(class=&quot;button&quot;)</span><br><span class="line">        a(href=&quot;http://baidu.com&quot;,title=&quot;google&quot;) Hello World</span><br><span class="line">        link(href=&apos;./public/css/boostrap.min.css&apos;,type=&apos;text/css&apos;,rel=&apos;stylesheet&apos;)</span><br><span class="line">        script(src=&apos;./public/js/jquery.min.css&apos;,type=&apos;text/javascript&apos;)</span><br><span class="line">        script(src=&apos;./public/js/boostrap.min.css&apos;,type=&apos;text/javascript&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>想把上面的文件编译成index.html有两种方法：</p>
+<ol>
+<li><p>pug index.pug (压缩版的代码，没有空格跟换行显示)</p>
+</li>
+<li><p>pug -P -w index.pug (这种编译出来不是压缩版，不过具有可读性，并且可以实时编译)</p>
+</li>
+</ol>
+<p>输出 “rendered index.html”这就表示编译成功</p>
+<h2 id="代码编辑器优化"><a href="#代码编辑器优化" class="headerlink" title="代码编辑器优化"></a>代码编辑器优化</h2><ol>
+<li>sublime,可以在package control-&gt;install package中安装<code>pug</code></li>
+<li>webStrom，如果出现Invalid indentation,you can use tabs or spaces but not both错误，可以参考这篇文章[Jade报错：Invalid indentation,you can use tabs or spaces but not both问题<br>]<br><a href="https://blog.csdn.net/u014182411/article/details/78964775" target="_blank" rel="noopener">webstorm 编写pug与pug的编译配置</a>( PS:学生可以凭借edu邮箱免费使用正版</li>
+</ol>
+<h2 id="基础语法知识"><a href="#基础语法知识" class="headerlink" title="基础语法知识"></a>基础语法知识</h2><p>一段简单的html代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">doctype html</span><br><span class="line">html</span><br><span class="line">    head</span><br><span class="line">            title hello pug</span><br><span class="line">    body</span><br><span class="line">        h1 pug pug</span><br></pre></td></tr></table></figure></p>
+<p>编译结果：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>hello pug <span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>pug pug<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="1-类名和ID名"><a href="#1-类名和ID名" class="headerlink" title="1. 类名和ID名"></a>1. 类名和ID名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">div#go</span><br><span class="line">    a.button</span><br><span class="line">div(id=&quot;goo&quot;)</span><br><span class="line">    a(class=&quot;button&quot;)</span><br></pre></td></tr></table></figure>
+<p>编译后<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"go"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"button"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"goo"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"button"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="2-属性"><a href="#2-属性" class="headerlink" title="2. 属性"></a>2. 属性</h3><p>属性可以使用（）包裹起来，属性值之间用逗号隔开<br>比如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a(href=&quot;http://baidu.com&quot;,title=&quot;百度&quot;)</span><br></pre></td></tr></table></figure></p>
+<p>编译后<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://baidu.com"</span> <span class="attr">title</span>=<span class="string">"百度"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="3-文本内容"><a href="#3-文本内容" class="headerlink" title="3. 文本内容"></a>3. 文本内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a(href=&quot;http://baidu.com&quot;,title=&quot;百度&quot;) Hello world</span><br></pre></td></tr></table></figure>
+<p>多行文本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">p.</span><br><span class="line">    abcdeff</span><br><span class="line">    abcdeff</span><br><span class="line">    abcdeffgg</span><br></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">p</span><br><span class="line">    |abcdeff &lt;strong&gt;hey&lt;/strong&gt;</span><br><span class="line">    |abcdeff</span><br><span class="line">    |abcdeffgg</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-注释"><a href="#4-注释" class="headerlink" title="4. 注释"></a>4. 注释</h3><ol>
+<li><p>单行注释</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// just some paragraphs</span><br><span class="line"><span class="comment">&lt;!-- just some paragraphs--&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>非缓冲注释</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//- a(href=&quot;http://baidu.com&quot;,title=&quot;google&quot;) Hello World</span><br></pre></td></tr></table></figure>
+<p> 不会被编译到HTML</p>
+</li>
+<li><p>块注释</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//h1 pug pug</span><br><span class="line">&lt;!--</span><br><span class="line">As much text as you want</span><br><span class="line">can go here.</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>IE注释</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--[if IE 8]&gt;&lt;html class=&apos;ie8&apos;&gt;&lt;[endif]--&gt;</span><br><span class="line">&lt;!--[if IE 9]&gt;&lt;html class=&apos;ie9&apos;&gt;&lt;[endif]--&gt;</span><br><span class="line">&lt;!--[if IE ]&gt;&lt;html class=&apos;ie8&apos;&gt;&lt;[endif]--&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="5-变量"><a href="#5-变量" class="headerlink" title="5. 变量"></a>5. 变量</h3><ol>
+<li><p>变量声明</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    -var pug=&quot;hello world&quot;</span><br><span class="line">    title #&#123;pug&#125;</span><br><span class="line">2. 转义变量</span><br><span class="line">    ``` pug</span><br><span class="line">    -var htmlData=&apos;&lt;strong&gt;kkk&lt;/strong&gt;&apos;</span><br><span class="line">    p #&#123;htmlData&#125;</span><br><span class="line">    p=htmlData</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不转义变量</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-var htmlData=&apos;&lt;strong&gt;kkk&lt;/strong&gt;&apos;</span><br><span class="line">p !&#123;htmlData&#125;</span><br><span class="line">p!=htmlData</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="6-流程代码"><a href="#6-流程代码" class="headerlink" title="6.流程代码"></a>6.流程代码</h3><ol>
+<li><p>循环</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//- for循环</span><br><span class="line">-var array = [1,2,3,4]</span><br><span class="line">ul</span><br><span class="line">    -for(var k in array)</span><br><span class="line">        li= array[k]</span><br><span class="line">//- while循环</span><br><span class="line">-var n = 0</span><br><span class="line">ul</span><br><span class="line">    while n&lt;4</span><br><span class="line">        li= n++</span><br><span class="line">//- each循环</span><br><span class="line">ul</span><br><span class="line">    each val,index in [&apos;一&apos;,&apos;二&apos;,&apos;三&apos;]</span><br><span class="line">        li= index + &apos;: &apos;+ val</span><br></pre></td></tr></table></figure>
+<p> <code>注意</code>: li后面等号不能留空格</p>
+</li>
+<li><p>筛选判断</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-var array=[1,2]</span><br><span class="line">if array.length&gt;2</span><br><span class="line">    p true</span><br><span class="line">else</span><br><span class="line">    p false</span><br></pre></td></tr></table></figure>
+<p> 加：反义版本 unless为false才执行，用法跟if一样<br> switch的功能</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-var dd = 10</span><br><span class="line">case dd</span><br><span class="line">when 0</span><br><span class="line">    p 您没有苹果</span><br><span class="line">when 1</span><br><span class="line">    p 您有一个苹果</span><br><span class="line">default</span><br><span class="line">    p 您有 #&#123;friends&#125; 个苹果</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="7-mixins"><a href="#7-mixins" class="headerlink" title="7.mixins"></a>7.mixins</h3><ol>
+<li><p>重复的代码块</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mixin sayHi</span><br><span class="line">    p hello everyone</span><br><span class="line">+sayHi</span><br></pre></td></tr></table></figure>
+<p> 编译后</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>hello everyone<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>传递参数</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mixin pet(name)</span><br><span class="line">    li.pet=  name</span><br><span class="line">ul</span><br><span class="line">    +pet(&apos;cat&apos;)</span><br></pre></td></tr></table></figure>
+<p> 编译后</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>cat<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>混入的块</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mixin article(title)</span><br><span class="line">.article</span><br><span class="line">    .article-wrapper</span><br><span class="line">    h1= title</span><br><span class="line">    if block</span><br><span class="line">        block</span><br><span class="line">    else</span><br><span class="line">        p 没有提供任何内容。</span><br><span class="line"></span><br><span class="line">+article(&apos;Hello world&apos;)</span><br><span class="line"></span><br><span class="line">+article(&apos;Hello world&apos;)</span><br><span class="line">p This is mine</span><br></pre></td></tr></table></figure>
+<p> 编译后</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"article"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"article-wrapper"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello world<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>没有提供任何内容。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"article"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"article-wrapper"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello world<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>This is mine<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>混入的Attributes</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mixin link(href, name)</span><br><span class="line">//- attributes == &#123;class: &quot;btn&quot;&#125;</span><br><span class="line">a(class!=attributes.class href=href)= name</span><br><span class="line"></span><br><span class="line">+link(&apos;/foo&apos;, &apos;foo&apos;)(class=&quot;btn&quot;)</span><br></pre></td></tr></table></figure>
+<p> 编译后</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"btn"</span> <span class="attr">href</span>=<span class="string">"/foo"</span>&gt;</span>foo<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不确定参数</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mixin list(id, ...items)</span><br><span class="line">ul(id=id)</span><br><span class="line">    each item in items</span><br><span class="line">        li= item</span><br><span class="line"></span><br><span class="line">+list(&apos;my-list&apos;, 1, 2, 3, 4)</span><br></pre></td></tr></table></figure>
+<p> 参数要加入…,编译后</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"my-list"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li>pug 官方文档：<a href="https://pugjs.org/zh-cn/language/includes.html" target="_blank" rel="noopener">pug模板</a></li>
+<li><a href="https://github.com/pugjs/pug" target="_blank" rel="noopener">Github·Pub</a></li>
+<li><a href="http://jade-lang.com/reference" target="_blank" rel="noopener">jade-lang</a></li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/html/" rel="tag"># html</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2018/04/06/css/" rel="next" title="css渐变色">
+                <i class="fa fa-chevron-left"></i> css渐变色
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2018/06/07/JavaScript变量类型与计算/" rel="prev" title="JavaScript变量类型与计算">
+                JavaScript变量类型与计算 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/blog/images/avatar.jpg"
+                alt="elfecho" />
+            
+              <p class="site-author-name" itemprop="name">elfecho</p>
+              <p class="site-description motion-element" itemprop="description">擅长各项前端技能，深入研究移动端开发与前端性能。非专业视觉设计师。此为博客一枚。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/blog/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/blog/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/blog/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://111.230.18.124" title="个人主页" target="_blank">个人主页</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+          <!-- 网易云音乐 
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=31421442&auto=1&height=66"></iframe> -->
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#pug安装与编译"><span class="nav-number">1.</span> <span class="nav-text">pug安装与编译</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译"><span class="nav-number">1.2.</span> <span class="nav-text">编译</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码编辑器优化"><span class="nav-number">2.</span> <span class="nav-text">代码编辑器优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础语法知识"><span class="nav-number">3.</span> <span class="nav-text">基础语法知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-类名和ID名"><span class="nav-number">3.1.</span> <span class="nav-text">1. 类名和ID名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-属性"><span class="nav-number">3.2.</span> <span class="nav-text">2. 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-文本内容"><span class="nav-number">3.3.</span> <span class="nav-text">3. 文本内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-注释"><span class="nav-number">3.4.</span> <span class="nav-text">4. 注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-变量"><span class="nav-number">3.5.</span> <span class="nav-text">5. 变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-流程代码"><span class="nav-number">3.6.</span> <span class="nav-text">6.流程代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-mixins"><span class="nav-number">3.7.</span> <span class="nav-text">7.mixins</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">elfecho</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">14k</span>
+  
+</div>
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
